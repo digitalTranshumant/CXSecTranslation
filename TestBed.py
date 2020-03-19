@@ -83,4 +83,24 @@ def summary(source_lang,target_lang,source_article,Maxtoclevel=2):
     d = findMissingSections(source_lang,target_lang,source_article)
     return jsonify(d)
 
+@app.route('/<path:dummy>')
+def fallback(dummy):
+    return '''
+	   <h2> Wrong URL</h2>
+	   Please use https://cxsectionrec.wmflabs.org/source_lang/target_lang/source_article/toclevel:optional <br> <br>
+	   For example: <br>
+		<li> <a href='https://cxsectionrec.wmflabs.org/en/es/Ukulele/1'>  https://cxsectionrec.wmflabs.org/en/es/Ukulele/1 <a> </li>
+		<li>		<a href='https://cxsectionrec.wmflabs.org/en/es/Ukulele/'>  https://cxsectionrec.wmflabs.org/en/es/Ukulele/ <a> </li>
+
+		'''
+
+@app.route('/')
+def index():
+ return '''
+	   <h2> Sections to Translate </h2>
+	   Please use https://cxsectionrec.wmflabs.org/source_lang/target_lang/source_article/toclevel:optional <br> <br>
+	   For example: <br>
+		<li> <a href='https://cxsectionrec.wmflabs.org/en/es/Ukulele/1'>  https://cxsectionrec.wmflabs.org/en/es/Ukulele/1 <a> </li>
+		<li>		<a href='https://cxsectionrec.wmflabs.org/en/es/Ukulele/'>  https://cxsectionrec.wmflabs.org/en/es/Ukulele/ <a> </li
+
 
